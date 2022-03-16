@@ -1,5 +1,5 @@
 const secretKey = () => {
-    return "lflahiueafhkaFLAHFILUFHKASF5892758RIWG233hfhfa"
+    return "lflahiueafhkaFLAHFILUFHKASF58%@#%#@&%@!#$@92758RIWG233hfhfa"
 }
 
 module.exports = secretKey

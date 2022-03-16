@@ -49,7 +49,7 @@ const login = async (req, res) => {
         const checkPassword = await bcrypt.compare(req.body.password , user.password)
         if(checkPassword) {
             console.log("user login is successful");
-            const token = jwt.sign({userID: user._id}, secretKey, {expiresIn:"15m"})
+            const token = jwt.sign({userId: user._id}, secretKey, {expiresIn:"5d"})
             res.send({"status":"success", "msg":"user login successful", user:user, token: token})
 
         } else {
@@ -70,7 +70,7 @@ const getUserForResetPassword = async (req, res) => {
     console.log("user is ", user);
     if(user) {
         const newSecretKey = secretKey + user._id
-        const token = jwt.sign({userID: user._id}, newSecretKey, {expiresIn:"10m"})
+        const token = jwt.sign({userId: user._id}, newSecretKey, {expiresIn:"10m"})
         const url = `http://localhost:3000/user/reset-password/${user._id}/${token}`
         console.log(url);
         console.log("user id", user._id);
